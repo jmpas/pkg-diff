@@ -17,6 +17,7 @@
     "diff"
   ],
   "author": "nipher",
+  "repository": "Nipher/pkg-diff",
   "license": "MIT",
   "dependencies": {
     "chalk": "^1.1.3",
