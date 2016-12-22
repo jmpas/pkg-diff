@@ -1,6 +1,6 @@
 {
   "name": "pkg-diff",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Compare package jsons and outputs a nice (kind of) result",
   "main": "index.js",
   "bin": {
