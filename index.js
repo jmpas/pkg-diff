@@ -28,8 +28,8 @@ function processDep (name, version, file) {
 }
 
 function processDiff (diff) {
-  let color = diff.added ? ['black', 'bgGreen'] : diff.removed ? ['white', 'bgRed'] : ['white', 'bgBlack']
-  return chalk.bold[color[0]][color[1]](diff.value)
+  let color = diff.added ? 'green' : diff.removed ? 'red' : 'white'
+  return chalk.bold[color](diff.value)
 }
 
 let dependencyTypes = ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies']
@@ -38,17 +38,26 @@ eachDependency(package1, dependencyTypes, 'left' , processDep)
 eachDependency(package2, dependencyTypes, 'right', processDep)
 
 for (let result in results) {
-  const versions = results[result]
-  if (versions.length === 1) versions.push('')
-	let diffs = jsdiff.diffChars(versions[0], versions[1])
+  process.stdout.write(chalk.bold(`${result}: `))
 
-  process.stderr.write(chalk.bold(`${result}: `))
+  const versions = results[result]
+  if (versions.length === 1) versions.push(' ')
+
+  if (versions[0] === versions[1]) {
+    console.log(chalk.white(versions[0]))
+    continue
+  }
+
+	let diffs = jsdiff.diffChars(versions[0], versions[1])
 
   diffs
     .map(processDiff)
-    .forEach(diff => process.stderr.write(diff))
+    .forEach(diff => process.stdout.write(diff))
 
-  process.stderr.write(` | left/right: [${(versions[0] === '' ? 'N/D' : versions[0])}, ${(versions[1] === '' ? 'N/D' : versions[1])}`)
+  let version1 = versions[0] ? versions[0] : 'N/D'
+  let version2 = versions[1] ? versions[1] : 'N/D'
+
+  process.stdout.write(` | ${chalk.red(version1)} / ${chalk.green(version2)}`)
 
   console.log()
 }
