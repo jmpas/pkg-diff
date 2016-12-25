@@ -7,8 +7,10 @@
     "pkg-diff": "./dist/index.js"
   },
   "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/ava --verbose",
+    "coverage": "./node_modules/.bin/nyc yarn test",
     "build": "./node_modules/.bin/babel src --out-dir dist",
-    "preinstall": "npm run build"
+    "preinstall": "yarn build"
   },
   "keywords": [
     "command",
@@ -27,7 +29,14 @@
   "devDependencies": {
     "ava": "^0.17.0",
     "babel-cli": "^6.18.0",
+    "babel-plugin-rewire": "^1.0.0",
     "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-stage-3": "^6.17.0"
+    "babel-preset-stage-3": "^6.17.0",
+    "nyc": "^10.0.0"
+  },
+  "ava": {
+    "require": "babel-register",
+    "babel": "inherit",
+    "plugins": ["rewire"]
   }
 }
