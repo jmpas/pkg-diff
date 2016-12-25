@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "dep1": "1.0.0"
+  },
+  "devDependencies": {
+    "dep2": "2.0.0"
+  },
+  "peerDependencies": {
+    "dep3": "3.0.0"
+  },
+  "opitionalDependencies": {
+    "dep4": "4.0.0"
+  },
+  "notRealDependencyNamespace": {
+    "not-valid": "1.0.0"
+  }
+}
