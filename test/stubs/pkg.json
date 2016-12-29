@@ -8,7 +8,7 @@
   "peerDependencies": {
     "dep3": "3.0.0"
   },
-  "opitionalDependencies": {
+  "optionalDependencies": {
     "dep4": "4.0.0"
   },
   "notRealDependencyNamespace": {

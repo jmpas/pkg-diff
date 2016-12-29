@@ -6,7 +6,7 @@ export default function getDependencies (path) {
     pkg.dependencies,
     pkg.devDependencies,
     pkg.peerDependencies,
-    pkg.opitionalDependencies
+    pkg.optionalDependencies
   ]
   return Object.assign({}, ...dependencies)
 }
