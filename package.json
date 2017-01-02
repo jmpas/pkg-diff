@@ -1,6 +1,6 @@
 {
   "name": "pkg-diff",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "Compare package.json between projects and outputs the difference between each dependency",
   "main": "index.js",
   "bin": {
