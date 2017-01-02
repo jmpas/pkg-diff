@@ -4,13 +4,13 @@ function resolvePath (path) {
   return /package.json$/.test(path) ? resolve(path) : resolve(path, 'package.json')
 }
 
-export default function getDependencies (path) {
+export default function getDependencies (path, ignore = '') {
   const pkg = require(resolvePath(path))
-  const dependencies = [
-    pkg.dependencies,
-    pkg.devDependencies,
-    pkg.peerDependencies,
-    pkg.optionalDependencies
-  ]
-  return Object.assign({}, ...dependencies)
+
+  return {
+    ...(ignore.includes('dep')      ? {} : pkg.dependencies),
+    ...(ignore.includes('dev')      ? {} : pkg.devDependencies),
+    ...(ignore.includes('peer')     ? {} : pkg.peerDependencies),
+    ...(ignore.includes('optional') ? {} : pkg.optionalDependencies)
+  }
 }

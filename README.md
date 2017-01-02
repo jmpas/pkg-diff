@@ -8,8 +8,14 @@ Outputs the diff between two package.json dependencies
 ![](example.gif)
 
 ```bash
-npm i -g pkg-diff
-pkg-diff path/to/project-1 path/to/project-2
+$ npm i -g pkg-diff
+$ pkg-diff path/to/project-1 path/to/project-2
+```
+
+If you want to ignore any dependency type you can use `--ignore`.
+
+```bash
+$ pkg-diff --ignore=peer,optional path/to/project-1 path/to/project-2
 ```
 
 ## License
