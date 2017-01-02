@@ -1,7 +1,8 @@
 import test from 'ava'
 import getDependencies from '../src/getDependencies'
 
-const path = './test/stubs/pkg.json'
+const pkgPath = 'test/stubs/package.json'
+const projectPath = 'test/stubs'
 
 test('returns with all valid dependencies', t => {
   const expected = {
@@ -12,7 +13,12 @@ test('returns with all valid dependencies', t => {
   }
 
   t.deepEqual(
-    getDependencies(path),
+    getDependencies(pkgPath),
+    expected
+  )
+
+  t.deepEqual(
+    getDependencies(projectPath),
     expected
   )
 })

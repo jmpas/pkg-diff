@@ -9,7 +9,7 @@ Outputs the diff between two package.json dependencies
 
 ```bash
 npm i -g pkg-diff
-pkg-diff path/to/project-1/package.json path/to/project-2/package.json
+pkg-diff path/to/project-1 path/to/project-2
 ```
 
 ## License
