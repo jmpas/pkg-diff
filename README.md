@@ -14,6 +14,8 @@ $ pkg-diff path/to/project-1 path/to/project-2
 
 If you want to ignore any dependency type you can use `--ignore`.
 
+Types: `dep`, `dev`, `peer`, `optional`.
+
 ```bash
 $ pkg-diff --ignore=peer,optional path/to/project-1 path/to/project-2
 ```
