@@ -1,6 +1,6 @@
 {
   "name": "pkg-diff",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Compare package.json between projects and outputs the difference between each dependency",
   "main": "index.js",
   "bin": {
@@ -10,7 +10,8 @@
     "test": "NODE_ENV=test ./node_modules/.bin/ava --verbose",
     "coverage": "./node_modules/.bin/nyc --check-coverage --lines 100 --functions 100 --branches 100 yarn test",
     "coveralls": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls",
-    "build": "./node_modules/.bin/babel src --out-dir dist"
+    "build": "./node_modules/.bin/babel src --out-dir dist",
+    "postinstall": "npm run build"
   },
   "keywords": [
     "command",
