@@ -9,9 +9,9 @@
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/.bin/ava --verbose",
     "coverage": "./node_modules/.bin/nyc --check-coverage --lines 100 --functions 100 --branches 100 yarn test",
-    "coveralls": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls",
+    "coveralls": "yarn coverage && ./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls",
     "build": "./node_modules/.bin/babel src --out-dir dist",
-    "prepublish": "npm run build"
+    "prepublish": "yarn build"
   },
   "keywords": [
     "command",
