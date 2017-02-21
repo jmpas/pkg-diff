@@ -1,5 +1,10 @@
 import { diffChars } from 'diff'
 
+/*Wrapper around jsdiff's diffChars. It returns an object that
+* describes which parts of two given strings for comparison 
+* (original and new) were changed by addition, subtraction or 
+* remained unchanged.
+*/
 function diff (value1 = '', value2 = '') {
   return diffChars(value1, value2)
 }
